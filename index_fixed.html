@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=640, user-scalable=no">
+  <title>AI情绪树洞</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: #1a1a2e;
+      color: #ffffff;
+      width: 640px;
+      margin: auto;
+      text-align: center;
+      padding: 60px 20px;
+    }
+    h1 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+    input[type="text"] {
+      width: 80%;
+      padding: 10px;
+      border-radius: 6px;
+      border: none;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #00b4d8;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 40px;
+      font-size: 20px;
+      font-style: italic;
+      color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>欢迎来到 AI 情绪树洞</h1>
+  <p>在下面输入你的心情</p>
+  <input type="text" id="emotionInput" placeholder="例如：我好累" />
+  <br />
+  <button onclick="showResponse()">投递给AI</button>
+  <div class="response" id="resultBox"></div>
+
+  <script>
+    const responses = {
+      "我好累": "你不是倒下，是在为明天蓄能。",
+      "感觉孤单": "夜再深，星星也在陪你。",
+      "我很开心": "快乐有名字，今晚它就叫你。",
+      "想家了": "那扇亮着灯的窗，一直在等你。",
+      "我有点难过": "哭也可以，别担心，我听得见。",
+      "心情烦躁": "天总会放晴，别被现在的云吓住。",
+      "觉得自己没用": "你没看见，但你正在长出新的自己。",
+      "我很幸福": "幸福不是结果，是你正在走的那段路。",
+      "我很焦虑": "别急，时间不只属于焦虑，也属于成长。",
+      "好像失去了热情": "火焰从未熄灭，只是换了个地方燃烧。"
+    };
+
+    function showResponse() {
+      const input = document.getElementById("emotionInput").value.trim();
+      const result = document.getElementById("resultBox");
+      if (responses[input]) {
+        result.textContent = responses[input];
+      } else {
+        result.textContent = "AI正在学习这种情绪，请换一种表达试试~";
+      }
+    }
+  </script>
+</body>
+</html>
